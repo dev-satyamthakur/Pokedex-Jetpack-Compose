@@ -11,7 +11,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.satyamthakur.learning.pokedexcompose.ui.theme.PokedexComposeTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +23,9 @@ class MainActivity : ComponentActivity() {
                 NavHost(
                     navController = navController, startDestination = "pokemon_list_screen"
                 ) {
+                    composable("pokemon_list_screen") {
+
+                    }
                     composable(
                         "pokemon_list_screen/{dominantColor}/{pokemonName}",
                         arguments = listOf(
